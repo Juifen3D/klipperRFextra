@@ -30,10 +30,10 @@ gcode:
 # Filamenthandling
 ######################################################################
 [gcode_macro FIL_LOAD]
-default_parameter_EXTRUDER_TEMP: S190
+default_parameter_EXTRUDER_TEMP: 190
 gcode:
     # Start hotend heating
-    M109 {EXTRUDER_TEMP}
+    M109 S{EXTRUDER_TEMP}
 	G21
 	G92 E0
 	# Split to avoid a error with the move to long
@@ -43,10 +43,10 @@ gcode:
 	M104 S0	
 
 [gcode_macro FIL_UNLOAD]
-default_parameter_EXTRUDER_TEMP: S190
+default_parameter_EXTRUDER_TEMP: 190
 gcode:
     # Start hotend heating
-    M109 {EXTRUDER_TEMP}
+    M109 S{EXTRUDER_TEMP}
     G21
 	G92
 	# Split to avoid a error with the move to long
@@ -71,24 +71,26 @@ gcode:
 	PRE_PLA
 	
 [gcode_macro PREHEAT]
-default_parameter_EXTRUDER_TEMP: S180
-default_parameter_BED_TEMP: S60
+default_parameter_EXTRUDER_TEMP: 180
+default_parameter_BED_TEMP: 60
 gcode:
     # Start bed and hotend heating no wait
-    M140 {BED_TEMP}
-    M104 {EXTRUDER_TEMP}
+    M140 S{BED_TEMP}
+    M104 S{EXTRUDER_TEMP}
 
 [gcode_macro PRE_PLA]
-default_parameter_EXTRUDER_TEMP: S180
-default_parameter_BED_TEMP: S60
+default_parameter_EXTRUDER_TEMP: 180
+default_parameter_BED_TEMP: 60
 gcode:
     # Start bed and hotend heating no wait
-    PREHEAT {BED_TEMP} {EXTRUDER_TEMP}
+    M140 S{BED_TEMP}
+    M104 S{EXTRUDER_TEMP}
 
 [gcode_macro PRE_PETG]
-default_parameter_EXTRUDER_TEMP: S190
-default_parameter_BED_TEMP: S70
+default_parameter_EXTRUDER_TEMP: 190
+default_parameter_BED_TEMP: 70
 gcode:
     # Start bed and hotend heating no wait
-    PREHEAT {BED_TEMP} {EXTRUDER_TEMP}
+    M140 S{BED_TEMP}
+    M104 S{EXTRUDER_TEMP}
 
