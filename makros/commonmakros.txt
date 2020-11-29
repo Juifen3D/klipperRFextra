@@ -1,0 +1,28 @@
+######################################################################
+# Makros for all RFx0000
+######################################################################
+
+######################################################################
+# Filamenthandling
+######################################################################
+[gcode_macro FIL_LOAD]
+default_parameter_EXTRUDER_TEMP: S190
+gcode:
+    # Start hotend heating
+    M109 {EXTRUDER_TEMP}
+	G21
+	G92 E0
+	G1 E90 F100
+	G92 E0
+	M104 S0	
+
+[gcode_macro FIL_UNLOAD]
+default_parameter_EXTRUDER_TEMP: S190
+gcode:
+    # Start hotend heating
+    M109 {EXTRUDER_TEMP}
+    G21
+	G92
+	G1 E-90 F500
+	G92 E0
+	M104 S0
