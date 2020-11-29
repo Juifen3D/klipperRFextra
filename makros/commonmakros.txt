@@ -12,7 +12,9 @@ gcode:
     M109 {EXTRUDER_TEMP}
 	G21
 	G92 E0
-	G1 E90 F100
+	# Split to avoid a error with the move to long
+	G1 E45 F100
+	G1 E45 F100
 	G92 E0
 	M104 S0	
 
@@ -23,6 +25,8 @@ gcode:
     M109 {EXTRUDER_TEMP}
     G21
 	G92
-	G1 E-90 F500
+	# Split to avoid a error with the move to long
+	G1 E-45 F500
+	G1 E-45 F500
 	G92 E0
 	M104 S0
