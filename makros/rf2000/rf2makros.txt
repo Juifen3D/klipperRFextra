@@ -17,8 +17,8 @@ default_parameter_EXTRUDER_TEMP: S190
 default_parameter_BED_TEMP: S60
 gcode:
     # Start bed and hotend heating
-    # M140 {BED_TEMP}
-    # M104 {EXTRUDER_TEMP}
+    M140 {BED_TEMP}
+    M104 {EXTRUDER_TEMP}
     # Use absolute coordinates
     G90
     # Reset the G-Code Z offset (adjust Z offset if needed)
