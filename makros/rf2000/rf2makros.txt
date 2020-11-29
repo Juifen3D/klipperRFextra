@@ -8,8 +8,8 @@
 [gcode_macro OUTPUT_OBJECT]
 gcode:
 	G90
-	#G1 Z180	F540
-	G1 Z80	F540
+	G1 Z180	F540
+	#G1 Z80	F540
 	G1 Y245 F4800
 
 [gcode_macro START_PRINT]
