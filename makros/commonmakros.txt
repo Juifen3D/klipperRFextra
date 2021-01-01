@@ -18,8 +18,8 @@ gcode:
     # Move the nozzle near the bed
     G1 Z5 F3000
 	# to avoid crash if you use clips on the board
-	G1 Y10
-	G1 X10
+	G1 Y30
+	G1 X30
 	G1 Z2
 	# Clear old values
 	BED_MESH_CLEAR
@@ -64,8 +64,8 @@ gcode:
 [gcode_macro HEATER_OFF]
 gcode:
     # Stot bed and hotend heating no wait
-    M140 0
-    M104 0
+    M140 S0
+    M104 S0
 
 [gcode_macro HEATER_ON]
 gcode:
