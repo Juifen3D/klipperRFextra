@@ -16,11 +16,11 @@ gcode:
     # Home the printer
     G28
     # Move the nozzle near the bed
-    G1 Z5 F3000
+    G1 Z10 F3000
 	# to avoid crash if you use clips on the board
 	G1 Y30
 	G1 X30
-	G1 Z2
+	G1 Z3
 	# Clear old values
 	BED_MESH_CLEAR
 	# start scan

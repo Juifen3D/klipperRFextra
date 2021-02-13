@@ -9,8 +9,9 @@
 gcode:
 	G90
 	G1 Z180	F540
-	#G1 Z80	F540
 	G1 Y245 F4800
+    # Disable steppers
+    M84
 
 [gcode_macro START_PRINT]
 default_parameter_EXTRUDER_TEMP: 190
@@ -47,6 +48,4 @@ gcode:
     M104 S0
     M106 S0
 	OUTPUT_OBJECT
-    # Disable steppers
-    M84
 
