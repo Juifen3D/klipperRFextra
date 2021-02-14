@@ -8,10 +8,11 @@
 [gcode_macro OUTPUT_OBJECT]
 gcode:
 	G90
-	G1 Z180	F540
-	G1 Y245 F4800
+	G1 Z175	F540
+	G1 Y230 F4800
     # Disable steppers
     M84
+	M18
 
 [gcode_macro START_PRINT]
 default_parameter_EXTRUDER_TEMP: 190
@@ -25,7 +26,7 @@ gcode:
     # Use absolute coordinates
     G90
     # Reset the G-Code Z offset (adjust Z offset if needed)
-    #SET_GCODE_OFFSET Z=0.0
+    SET_GCODE_OFFSET Z=0.0
     # Move the nozzle near the bed
     G1 Z5 F3000
     # Move the nozzle very close to the bed
@@ -34,6 +35,28 @@ gcode:
     M190 S{BED_TEMP}
     # Set and wait for nozzle to reach temperature
     M109 S{EXTRUDER_TEMP}
+
+[gcode_macro PRINT_STARTLINE]
+gcode:
+	# start line
+	G1 Z5
+	G1 X0 Y0 F5000
+	G1 Z0.5
+	G92 E0 
+	G1 E-0.5 F300 
+	G1 E20 F800 
+	G1 X0 Y5
+	# Preperation for Z_Sense_offset
+	#G1 Z5
+	#G1 X0 Y60
+	#G1 X50 Y60 Z0.3 F5000
+	#;Z_SENSE_OFFSET
+	SET_GCODE_OFFSET Z=0.0
+	G1 Z5
+	# Startmade
+	G1 X0 Y30 Z0.3 F5000
+	G1 X170 Y25 E30 F1000
+	# Fertig
 
 [gcode_macro END_PRINT]
 default_parameter_RETRACT_MM: 2
