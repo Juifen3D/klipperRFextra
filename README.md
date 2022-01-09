@@ -1,2 +1,2 @@
 # klipperRFextra
-Extra Parts only for the RFx000 3D-Printer series 
+Klipper extras for the Conrad Renkforce RFx000 3D-Printer series
